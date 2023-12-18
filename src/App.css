@@ -1322,7 +1322,6 @@ tbody {
 }
 .statusMsg {
   margin-top: 60px;
-  min-width: auto!important;
   padding: 20px;
   display: table;
   margin-left: auto;

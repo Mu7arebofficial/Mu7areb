@@ -7,9 +7,12 @@ import ProductDetails from './pages/ProductDetails';
 import StoreContent from './Components/StoreContent/StoreContent';
 import Signup from './pages/Signup';
 import Store from './pages/Store';
+// // import Profile from './pages/Profile';
+// import { useSelector } from 'react-redux';
 import PageNotFound from './pages/PageNotFound';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+// import DashboardList from './Components/AdminDashboard/DashboardList';
 import DashboardAddProduct from './Components/AdminDashboard/DashboardAddProduct';
 import DashboardProduct from './Components/AdminDashboard/DashboardProduct';
 import Profile from './pages/Profile';
@@ -22,7 +25,7 @@ import DashboardOrders from './Components/AdminDashboard/DashboardOrders';
 import StatusOrder from './Components/AdminDashboard/dashStatusOrder/StatusOrder';
 import ProductsOrder from './Components/AdminDashboard/orderDetails/ProductsOrder';
 import OrderInformation from './Components/AdminDashboard/orderDetails/OrderInformation';
-import DashboardUsers from './Components/AdminDashboard/DashboardUsers';
+import DashboardUsers from './Components/AdminDashboard/DashboardUsers';  
 function App() {
   // 
   const isLogin = useSelector(state => state.cart.isLogin)
