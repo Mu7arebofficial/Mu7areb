@@ -29,8 +29,6 @@ p- bodyparser <br>
 
 The main objective of the entire activity is to create an E-commerce website and give admin full access on it. <br>
  <br>
-  <br>
-   <br>
 For User
  <br> <br>
 1- get all products <br>
@@ -40,7 +38,7 @@ For User
 5- Login/Signup <br>
 6- Search for any specific product <br>
 7- show trending products <br>
- <br> <br>
+ <br> 
 For Admin
  <br> <br>
 1- display all products and edditing on any one. <br>
@@ -51,5 +49,5 @@ For Admin
 6- delete any order or any product
 
 ### login as a admin
-email: admin@yahoo.com
+email: admin@yahoo.com<br>
 pass: admin
