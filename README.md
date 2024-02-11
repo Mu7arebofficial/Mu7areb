@@ -14,7 +14,7 @@ c- Axios <br>
 d- React-icons <br>
 e- React-router-dom <br>
 f- Reduc-toolkit <br>
-g- bure css <br>
+g- Stripe <br>
 h- NodeJs <br>
 i- mongoDb <br>
 j- expressJs <br>
@@ -24,6 +24,7 @@ m- jsonwebtoken <br>
 n- bcryptjs <br>
 o- cloudnary <br>
 p- bodyparser <br>
+q- Css pure <br>
 
 ### Advantages
 
@@ -38,6 +39,7 @@ For User
 5- Login/Signup <br>
 6- Search for any specific product <br>
 7- show trending products <br>
+7- pay for his products <br>
  <br> 
 For Admin
  <br> <br>
