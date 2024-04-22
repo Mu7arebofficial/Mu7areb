@@ -19,7 +19,7 @@ const ProductDetailsCombonent = ({item }) => {
             <div className='right col-lg-6 col-12'>
                 <div className='details'>
                     <h2 className='mb-3'>{item?.name}</h2>
-                    <span className='productPrice text-primary fs-2 d-block  mb-3'>{item?.price}$</span>
+                    <span className='productPrice text-primary bold fs-2 d-block  mb-3'>{item?.price}$</span>
                     <h3>Description</h3>
                     <p>{item?.description}</p>
                 </div>
@@ -28,9 +28,9 @@ const ProductDetailsCombonent = ({item }) => {
                     <span className='p-3'>{quantaty}</span>
                     <button className='btn btn-outline-secondary' onClick={() => setQuantaty(quantaty + 1)}>+</button>
                 </div>
-                <button onClick={addToCartHandler} className='btn btn-primary mb-3 btn-lg '><MdAddShoppingCart className='me-2 fs-4'  />Add to CART</button>
+                <button onClick={addToCartHandler} className='btn btn-dark mb-3 btn-lg '><MdAddShoppingCart className='me-2 fs-4'  />Add to CART</button>
                 
-                <div className='mb-3'><Link className='fs-5 '><AiOutlineHeart className='me-2' />Add to wishlist</Link></div>
+                <div className='mb-3'><Link className='fs-5 text-dark'><AiOutlineHeart className='me-2' />Add to wishlist</Link></div>
                 <hr />
                 <div className=' headersDescription text-secondary'>
                     <h5>Description</h5>

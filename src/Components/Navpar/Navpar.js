@@ -1,13 +1,15 @@
 import React from 'react'
 // import {AiOutlineBars } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { FaArrowDown } from "react-icons/fa";
+
 const Navpar = () => {
     return (
         <nav className='container pt-2 pb-2 links '>
             <div className='nav-content row '>
                 <div className=' category-list col-lg-6 col-md-6 d-flex justify-content-center align-items-center catIcon position-relative'>
                     {/* <AiOutlineBars  className='text-white fs-1 me-2' /> */}
-                    <h3 className='text-white me-4'>Shop Categories</h3>
+                    <h3 className='text-white '>Shop Categories<FaArrowDown className='ms-2' /></h3>
                     <ul className='position-absolute altLinks text-black'>
                         <li><Link to='/products/Men'>Men</Link></li>
                         <li><Link to='/products/Women'>Women</Link></li>

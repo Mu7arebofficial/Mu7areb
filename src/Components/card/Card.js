@@ -16,7 +16,7 @@ const Card = (props) => {
 
                 <img loading='lazy'  src={props?.item?.images[0]?.url} alt='card_image' />
 
-            <p className='pb-0 mb-1 pt-2 fw-bold text-danger'>{props.item.name}</p>
+            <p className='pb-0 mb-1 pt-2 fw-bold text-dark'>{props.item.name}</p>
             <div className='icons  d-flex flex-column justify-content-around align-items-center position-absolute '>
                 <Link className=' rounded-circle mb-3  text-white ' onClick={addItemHandler}>
                     <BsCartPlusFill className='fs-3   ' onClick={props.onClick} />

@@ -2,13 +2,14 @@ import {AiFillApple , AiFillFacebook , AiOutlineApple  ,AiOutlineTwitter , AiFil
 const SecondFooter = () => {
     return (
         <>
-            <footer className='second-footer row text-white'>
-                <div className='col-lg-2 col-sm-6 d-flex flex-column'>
+            <footer className='second-footer row justify-content-start  align-items-start text-white'>
+                <div className='col-lg-4 col-sm-6 d-flex flex-column   '>
                     <h2 className='mb-4'>Contact Us</h2>
-                    <p>Demo Store</p>
-                    <p>No. 212 elfoundoa , zefta , 1111 <br /> Egypt</p>
+                    <p>Loocal hub</p>
+                    <p>No. 212 october , elmotamez , 12  Egypt</p>
                     <p>+201021761272</p>
-                    <p>elsheta474@gmail.com</p>
+                    <p>+201212061116</p>
+                    <p>localhub@gmail.com</p>
                     <ul className='social d-flex  align-items-center'>
                         <li>
                             <AiFillFacebook  />
@@ -24,23 +25,9 @@ const SecondFooter = () => {
                         </li>
                     </ul>
                 </div>
-                <div className='col-lg-2 col-sm-6'>
-                    <h2 className='mb-4'>Information</h2>
-                    <p>Privacy Police</p>
-                    <p>Refund Police</p>
-                    <p>Snipping Police</p>
-                    <p>Terms Of service</p>
-                    <p>Blogs</p>
-                </div>
-                <div className='col-lg-2 col-sm-6'>
-                    <h2 className='mb-4'>Account</h2>
-                    <p>Search</p>
-                    <p>About Us</p>
-                    <p>faq</p>
-                    <p>Contact</p>
-                    <p>Size Chart</p>
-                </div>
-                <div className='col-lg-2 col-sm-6'>
+                
+                
+                <div className='col-lg-4 col-sm-6'>
                     <h2 className='mb-4'>Quick Links</h2>
                     <p>Accessories</p>
                     <p>Laptops</p>

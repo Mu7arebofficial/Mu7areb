@@ -9,13 +9,13 @@ const Store = () => {
         <>
         <div className='catNav'>
             <ul className='storeCategories'>
-                <Link to='/products/Men'>
+                <Link className='text-dark' to='/products/Men'>
                     <li>Men</li>
                 </Link>
-                <Link to='/products/Women'>
+                <Link className='text-dark'  to='/products/Women'>
                     <li>Women</li>
                 </Link>
-                <Link to='/products/Kids'>
+                <Link className='text-dark'  to='/products/Kids'>
                     <li>Kids</li>
                 </Link>
             </ul>            

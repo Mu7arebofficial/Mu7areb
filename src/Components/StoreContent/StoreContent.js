@@ -40,11 +40,11 @@ const StoreContent = (props) => {
                         <h4 className='pb-2'>Sort by</h4>
                         <div className='d-flex'>
                             <input className='me-2' type='radio' name='ass' id='asc' value='asc' onClick={getPriceOrder} />
-                            <label className='w-auto' htmlFor='asc'>Price (Lowest first)</label>                        
+                            <label className='w-auto' htmlFor='asc'>Lowest</label>                        
                         </div>
                         <div className='mt-2 d-flex'>
                             <input className='me-2' type='radio' name='ass' id='desc' value='desc' onClick={getPriceOrder} />
-                            <label className='w-auto' htmlFor='desc'>Price (Highest first)</label>                        
+                            <label className='w-auto' htmlFor='desc'>Highest</label>                        
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@ const HeaderContent = () => {
         <div className='container pt-3'>
             <div className='row'>
                 <div className=' header-title col-lg-4 col-md-4  col-xl-2 col-4 text-center'>
-                    <h2 className='text-white'><Link to='/'>Store</Link></h2>
+                    <h2 className='text-white'><Link to='/' className='text-white'>Store</Link></h2>
                 </div>
                 <div  className=' header-search col-lg-7 col-md-7 col-7 col-xl-4 text-start position-relative '>
                     <input className='p-3 w-100' placeholder='Search Product Here' name='search' type='text' onChange={searchInputHandler} />
@@ -38,7 +38,7 @@ const HeaderContent = () => {
 
                     <div className='d-flex flex-row  align-items-center gap-10 text-white  ' onClick={() => setViewCart(!viewCart)} style={{cursor: 'pointer'}}>
                             <AiOutlineShoppingCart className='text-white fs-1 fw-bold me-2'   />
-                            <div className=' cart-price d-flex flex-column flex-end '>
+                            <div className=' cart-price d-flex  flex-end '>
                                 <span className='bg-white text-black text-center fw-bold rounded '>{products.length}</span>   
                                 <p className='m-0'>{totalPrice()}$</p>
                             </div>                        

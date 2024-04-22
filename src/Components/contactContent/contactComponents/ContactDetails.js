@@ -8,15 +8,19 @@ const ContactDetails = () => {
             <h3>Get in touch With us</h3>
             <div className='d-flex mt-4'>
                 <AiFillHome className='me-2 h5' />
-                <p>Zifta city , mohafzet elgharbia Egypt</p>
+                <p>No. 212 october , elmotamez , 12 Egypt</p>
             </div>
             <div className='d-flex mt-4'>
                 <BsFillTelephoneFill className='me-2 h5' />
-                <p>(+20)1021761272</p>
+                <div className='d-flex'>
+                <p className='me-2'>(+20)1021761272</p>,
+                <p className='ms-2'>(+20)1212061116</p>
+                </div>
             </div>
+           
             <div className='d-flex mt-4'>
                 <RiMessage3Fill className='me-2 h5' />
-                <p>elsheta474@gmail.com</p>
+                <p>localhub@gmail.com</p>
             </div>
         </div>
     )
