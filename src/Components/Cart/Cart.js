@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {MdDelete} from 'react-icons/md'
 import { useSelector , useDispatch } from 'react-redux'
-import { Add , Remove , Delete , Reset } from '../RTK/Slices/CartSlice'
+import { Add , Remove , Delete , Reset , ChooseSize } from '../RTK/Slices/CartSlice'
 // import StripeCheckout from 'react-stripe-checkout';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,7 @@ const Cart = (props) => {
     const isLogin = useSelector(state => state.cart.isLogin)
     const userData = useSelector(state => state.cart.userData)
     const [payNow , setPayNow] = useState(false)
+    const [activeSize , setActiveSize] = useState()
 
     const totalPrice = () => {
         let total = 0
@@ -34,7 +35,14 @@ const Cart = (props) => {
             
         }
     }
-    
+    const chooseSizeHandler = (e , item) => {
+        for(let i = 0 ; i< 5; i++) {
+            e.target.parentElement.children[i].classList.remove("active")
+        }
+        e.target.classList.add("active")
+        dispatch(ChooseSize({...item , size: e.target.innerHTML }))
+    }
+    console.log(products)
     return (
         <div className={`cart position-absolute ${props.class} `}>
             <button className='exit btn btn-primary d-block ms-auto' onClick={() => props.setViewCart(false)} >x</button>
@@ -42,6 +50,7 @@ const Cart = (props) => {
             {products.length > 0 ?  
                 products.map((item) => {
                     return (
+                        <>
                         <div key={item?._id} className='cart-content d-flex gap-10 align-items-start'>
                             <img className='productImageCart' loading='lazy' src={item?.images[0]?.url} alt='productImageCart'/>
                             <div className='cart-text p-1  '>
@@ -54,9 +63,18 @@ const Cart = (props) => {
                                         </div>
                                         <button className='btn btn-primary text-white' onClick={() => dispatch(Add({...item , quantaty: 1})) && toast.success('adding Item successfully')} >+</button>
                                     </div>
+                                <div className='sizesButtons mt-3 ms-2 d-flex'>
+                                    <button onClick={(e) => {chooseSizeHandler(e , item)}} disabled={item?.sizes[0]?.XXL < 1}  className={`me-2 `}>XXL</button>
+                                    <button onClick={(e) => {chooseSizeHandler(e , item)}} disabled={item?.sizes[0]?.XL  < 1} className={`me-2 `}>XL</button>
+                                    <button onClick={(e) => {chooseSizeHandler(e , item)}} disabled={item?.sizes[0]?.L  < 1}  className={`me-2 `}>L</button>
+                                    <button onClick={(e) => {chooseSizeHandler(e , item)}} disabled={item?.sizes[0]?.M  < 1}  className={`me-2 `}>M</button>
+                                    <button onClick={(e) => {chooseSizeHandler(e , item)}} disabled={item?.sizes[0]?.S < 1}  className={`me-2 `}>S</button>
+                                </div>
                             </div>
                             <MdDelete onClick={() => dispatch(Delete(item)) && toast.success('Deletting Items successfully')} className=' c-pointer text-danger fs-4  ' />
                         </div>                          
+                        
+                        </>
                     )
                 })
 

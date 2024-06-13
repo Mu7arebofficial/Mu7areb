@@ -31,6 +31,11 @@ export const cartSlice = createSlice({
                 state.items = state.items.filter((item)=> item.name !== action.payload.name)
             }
         },
+        ChooseSize: (state , action) => {
+            let itemIndex = state.items.findIndex((item) => item.name === action.payload.name)
+            state.items[itemIndex].size = action.payload.size
+
+        },
         Delete: (state , action) => {
             state.items = state.items.filter((item)=> item.name !== action.payload.name)
         },
@@ -52,7 +57,7 @@ export const cartSlice = createSlice({
     }
 })
 
-export const {Add , Remove , Reset , Delete , LogIn , LogOut , AdduserData  } = cartSlice.actions
+export const {Add , Remove , Reset , Delete , LogIn , LogOut , AdduserData , ChooseSize  } = cartSlice.actions
 
 export default cartSlice.reducer
 

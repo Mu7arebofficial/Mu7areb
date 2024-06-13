@@ -14,14 +14,24 @@ const ProductDetailsCombonent = ({item }) => {
         dispatch(Add({...item , amount: quantaty , quantaty: quantaty }))
         toast.success('Adding Items successfully')
     }
+    const [activeSize , setActiveSize] = useState()
+    console.log(item)
     return (
         <>
             <div className='right col-lg-6 col-12'>
                 <div className='details'>
-                    <h2 className='mb-3'>{item?.name}</h2>
+                    <h2 className='mb-3'>{item?.name} ({item?.kind})</h2>
                     <span className='productPrice text-primary bold fs-2 d-block  mb-3'>{item?.price}$</span>
+                    {/* <div className='bold h2 mb-3'> Brand: <span className='text-primary'>{item?.kind}</span></div> */}
                     <h3>Description</h3>
                     <p>{item?.description}</p>
+                </div>
+                <div className='sizesButtons mb-3 d-flex'>
+                    <button disabled={item?.sizes[0]?.XXL < 1} onClick={() => setActiveSize("XXL")} className={`me-2 ${activeSize === "XXL" && "active"}`}>XXL</button>
+                    <button disabled={item?.sizes[0]?.XL  < 1} onClick={() => setActiveSize("XL")} className={`me-2 ${activeSize === "XL" && "active"}`}>XL</button>
+                    <button disabled={item?.sizes[0]?.L  < 1} onClick={() => setActiveSize("L")} className={`me-2 ${activeSize === "L" && "active"}`}>L</button>
+                    <button disabled={item?.sizes[0]?.M  < 1} onClick={() => setActiveSize("M")} className={`me-2 ${activeSize === "M" && "active"}`}>M</button>
+                    <button disabled={item?.sizes[0]?.S < 1} onClick={() => setActiveSize("S")} className={`me-2 ${activeSize === "S" && "active"}`}>S</button>
                 </div>
                 <div className='controlButtons mb-4'>
                     <button className='btn btn-outline-secondary' onClick={() => setQuantaty(quantaty === 1 ? 1 : quantaty - 1)}>-</button>

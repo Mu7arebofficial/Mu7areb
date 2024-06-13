@@ -27,6 +27,7 @@ const Card = (props) => {
             </div>
             <span>{props.item.price}$</span>
             
+            <div className='brandName'>{props.item?.kind}</div>
         </div>
         
         </>

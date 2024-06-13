@@ -6,7 +6,8 @@ import Loader from '../Loaders/Loader'
 
 const ProductsList = ({subCategory , category , searchKey , priceFilter , priceOrder}) => {
     console.log(priceFilter, "priceFilter")
-    const {data , isLoading , err } = useFetch(searchKey ? `products/search/${searchKey}` : `products`, "GET", null,null,priceFilter,priceOrder,subCategory || null , category || null)
+    // const {data , isLoading , err } = useFetch(searchKey ? `products/search/${searchKey}` : `products`, "GET", null,null,priceFilter,priceOrder,subCategory || null , category || null)
+    const {data , isLoading , err } = useFetch(searchKey ? `products/search/${searchKey}` : `products`, "GET", null,null,priceFilter,priceOrder,category || null , subCategory || null)
     const length = data?.data?.products.length
     return (
         <>

@@ -7,7 +7,7 @@ export const Footer = () => {
             <footer className='first-footer '>
                 <div className=' first-footer-conent container row ms-auto me-auto' >
                     <div className='text-white col-lg-4 col-sm-12 d-flex justify-content-center align-items-center gap-10'>
-                        <h4>sign up for newsletter</h4>
+                        <h4>sign up for freshly updates</h4>
                     </div>
                     <div className='col-lg-8 col-sm-12'>
                         <div className="input-group mb-3 ">

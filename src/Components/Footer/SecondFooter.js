@@ -1,11 +1,13 @@
 import {AiFillApple , AiFillFacebook , AiOutlineApple  ,AiOutlineTwitter , AiFillInstagram  ,AiFillYoutube} from 'react-icons/ai'
+import logo from '../../images/x logog.png'
+
 const SecondFooter = () => {
     return (
         <>
             <footer className='second-footer row justify-content-start  align-items-start text-white'>
                 <div className='col-lg-4 col-sm-6 d-flex flex-column   '>
-                    <h2 className='mb-4'>Contact Us</h2>
-                    <p>Loocal hub</p>
+                    {/* <h2 className='mb-4'>Contact Us</h2> */}
+                    <p><img src={logo} alt='logo' /></p>
                     <p>No. 212 october , elmotamez , 12  Egypt</p>
                     <p>+201021761272</p>
                     <p>+201212061116</p>

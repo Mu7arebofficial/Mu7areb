@@ -8,7 +8,7 @@ const Store = () => {
     return (
         <>
         <div className='catNav'>
-            <ul className='storeCategories'>
+            {/* <ul className='storeCategories'>
                 <Link className='text-dark' to='/products/Men'>
                     <li>Men</li>
                 </Link>
@@ -18,7 +18,7 @@ const Store = () => {
                 <Link className='text-dark'  to='/products/Kids'>
                     <li>Kids</li>
                 </Link>
-            </ul>            
+            </ul>             */}
         </div>
         <StoreContent Key={key} />
         </>

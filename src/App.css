@@ -64,10 +64,30 @@ ol {
 .header {
   background-color: var(--main-color);
 }
-
+.header-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-title img {
+  width: 150px;
+  height: 150px;
+}
+.header-search .rounded-start {
+  height: 58px!important;
+}
 @media (max-width: 767px) {
   .header-title {
     font-size: 11px;
+  }
+  .header-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-search .rounded-start {
+    /* display: none!important; */
+    height: 50px!important;
   }
 }
 
@@ -92,14 +112,37 @@ ol {
 }
 
 .altLinks {
-  bottom: -170px;
+  position: absolute;
+  top: 40px;
   background-color: var(--main-color);
   padding: 10px;
   width: 70%;
   text-align: center;
   z-index: 5;
 }
+.sizesButtons button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: grey;
+  color: white;
+  border: none;
+  outline: none;
+}
+.cart .sizesButtons button {
+  width: 30px;
+  height: 30px;
+  background-color: #0355ff;
+  font-size: 12px;
+}
 
+.sizesButtons button.active {
+  background-color: var(--main-color);
+}
+.sizesButtons button:disabled {
+  cursor: not-allowed;
+  background-color: red;
+}
 .altLinks li {
   padding: 10px 15px;
   color: white;
@@ -188,6 +231,10 @@ ol {
 .second-footer > div:first-child {
   justify-content: start;
   align-items: start;
+}
+.second-footer img {
+  width: 150px;
+  height: 150px;
 }
 @media(max-width: 767px) {
   .cart-price {
@@ -768,7 +815,7 @@ ol {
   top: 0;
   right: -400px;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   z-index: 10;
   width: 400px;
   padding: 20px;
@@ -790,7 +837,10 @@ ol {
   object-fit: cover;
   padding-top: 7px;
 }
-
+.cart {
+  scrollbar-color: var(--main-color) var(--main-color);
+  scrollbar-width: thin;
+}
 .cart-text {
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -1418,4 +1468,18 @@ tbody {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.brandName {
+  position: absolute;
+  bottom: 80px;
+  background-color: var(--main-color);
+  color: white;
+  padding: 5px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.8s;
+}
+.card:hover .brandName {
+  opacity: 1;
 }
