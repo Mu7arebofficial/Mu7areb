@@ -6,7 +6,8 @@ export const cartSlice = createSlice({
         isLogin: false,
         token: '',
         userData: {},
-        isAdmin: false
+        isAdmin: false,
+        isBrandOwner: false
     },
     name: 'cart',
     reducers: {
@@ -53,6 +54,7 @@ export const cartSlice = createSlice({
         AdduserData: (state , action) => {
             state.userData = action.payload
             state.isAdmin = action.payload.role === "ADMIN" ? true : false
+            state.isBrandOwner = action.payload.role === "brandOwner" ? true : false
         }
     }
 })

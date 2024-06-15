@@ -46,6 +46,7 @@ const LoginForm = () => {
                 email: email,
                 id: res.data.data.id,
                 role: res.data.data.role,
+                brand: res.data?.data?.brand || "none"
             }))
             toast.success('Login successfully')
             navigate('/')               

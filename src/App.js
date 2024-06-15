@@ -26,10 +26,12 @@ import StatusOrder from './Components/AdminDashboard/dashStatusOrder/StatusOrder
 import ProductsOrder from './Components/AdminDashboard/orderDetails/ProductsOrder';
 import OrderInformation from './Components/AdminDashboard/orderDetails/OrderInformation';
 import DashboardUsers from './Components/AdminDashboard/DashboardUsers';  
+import BrandOwnerDash from './Components/BrandOwnerDash/BrandOwnerDash';
 function App() {
   // 
   const isLogin = useSelector(state => state.cart.isLogin)
   const isAdmin = useSelector(state => state.cart.isAdmin)
+  const isBrandOwner = useSelector(state => state.cart.isBrandOwner)
   const dispatch = useDispatch()
   setTimeout(() => {
     dispatch(LogOut())
@@ -53,6 +55,9 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
           <Route path='contact' element={<Contact />} />
           {isLogin &&<Route path='profile' element={<Profile />} />}
+
+          {isLogin && isBrandOwner && <Route path='brand/:brandName' element={<BrandOwnerDash />} /> }
+
           {isLogin && isAdmin && <Route path='admin' element={<AdminLayout />}>
             <Route path='home' element={<DashboardHome />} /> 
             <Route path='products' element={<DashboardProduct />} />
