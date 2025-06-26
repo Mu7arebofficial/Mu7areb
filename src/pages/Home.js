@@ -5,18 +5,16 @@ import SectionThree from '../Components/Home-content/SectionThree'
 import SectionFour from '../Components/Home-content/SectionFour'
 
 const Home = () => {
-    return (
-        <>
-        
-            <div className='home'>
-                <SectionOne />
-                <SectionTwo />
-                <SectionThree />
-                <SectionFour />
-            </div>        
-        </>
-
-    )
+  return (
+    <>
+      <div className="home">
+        <SectionOne />
+        <SectionTwo />
+        <SectionThree />
+        <SectionFour />
+      </div>
+    </>
+  )
 }
 
-export default Home 
+export default Home

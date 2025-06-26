@@ -1,0 +1,11 @@
+public/
+build/
+*.js
+node_modules/
+serviceWorker.js
+*.test.js
+jest.config.js
+coverage/
+# *.ts
+# *.tsx
+tailwind.config.js
