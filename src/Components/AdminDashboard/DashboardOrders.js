@@ -39,8 +39,9 @@ const DashboardOrders = () => {
                       <td>{ele?.information?.name}</td>
                       <td>{ele?.information?.email}</td>
                       <td
-                        className={`text-center bold ${ele?.status === 'pending' && 'text-warning'} ${ele?.status === 'closed' ? 'text-danger' : 'text-success'}`}
-                      >
+                        className={`text-center bold ${ele?.status === 'pending' && 'text-warning'} ${
+                          ele?.status === 'closed' ? 'text-danger' : 'text-success'
+                        }`}>
                         {ele?.status}
                       </td>
                       <td className="d-flex justify-content-center align-items-center">
@@ -68,16 +69,14 @@ const DashboardOrders = () => {
             type="button"
             disabled={numberPage === 1 ? true : false}
             className="btn btn-danger me-2"
-            onClick={() => setNumberPage(numberPage - 1)}
-          >
+            onClick={() => setNumberPage(numberPage - 1)}>
             Prievius
           </button>
           <button
             type="button"
-            disabled={numberPage === 1 ? true : false}
+            disabled={numberPage === 50 ? true : false}
             className="btn btn-primary"
-            onClick={() => setNumberPage(numberPage + 1)}
-          >
+            onClick={() => setNumberPage(numberPage + 1)}>
             Next
           </button>
         </div>

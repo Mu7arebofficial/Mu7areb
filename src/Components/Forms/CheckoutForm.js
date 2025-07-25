@@ -15,21 +15,26 @@ const CheckoutForm = props => {
   console.log(products)
   const formHandler = async e => {
     e.preventDefault()
-    try {
-      toast.info('Sending your order')
-      await axios.post('https://e-commerce-hh3m.onrender.com/api/orders', {
-        information: {
-          name: nameRef.current.value,
-          street: locationRef.current.value,
-          postcode: postCodeRef.current.value,
-          email: emailRef.current.value || props?.user?.email,
-        },
-        order: products,
-      })
-      setOrderIsDone(true)
-      toast.success('Succcessfully sent your order')
-    } catch (err) {
-      toast.error('Somthing went wrong please try again')
+    console.log(postCodeRef?.current.value.length, 'S')
+    if (postCodeRef?.current.value.length == 11) {
+      try {
+        toast.info('Sending your order')
+        await axios.post('https://e-commerce-hh3m.onrender.com/api/orders', {
+          information: {
+            name: nameRef.current.value,
+            street: locationRef.current.value,
+            postcode: postCodeRef.current.value,
+            email: emailRef.current.value || props?.user?.email,
+          },
+          order: products,
+        })
+        setOrderIsDone(true)
+        toast.success('Succcessfully sent your order')
+      } catch (err) {
+        toast.error('Somthing went wrong please try again')
+      }
+    } else {
+      toast.info('Your phone number not valid')
     }
   }
   return (

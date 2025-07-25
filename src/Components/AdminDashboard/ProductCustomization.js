@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
@@ -12,35 +12,27 @@ const ProductCustomization = () => {
   const [image1, setImage1] = useState(null)
   const [image2, setImage2] = useState(null)
   const [description, setDescription] = useState(null)
-  const [category, setCategory] = useState(data?.data?.choosenProduct?.kind)
-  const [subCategory, setSubCategory] = useState(data?.data?.choosenProduct?.category)
-  const [isTrending, setIstrending] = useState(data?.data?.choosenProduct?.isTrending)
+  const [category, setCategory] = useState()
+  const [subCategory, setSubCategory] = useState()
+  const [isTrending, setIstrending] = useState()
   const token = useSelector(state => state.cart.token)
   const navigate = useNavigate()
   const formHandler = async e => {
     e.preventDefault()
     const form = new FormData()
-    form.append('name', name)
-    form.append('price', price)
-    form.append('description', description)
-    form.append('kind', category)
-    form.append('isTrending', isTrending)
-    form.append('category', subCategory)
-    form.append('images', image1)
-    form.append('images', image2)
-    await axios.patch(
-      `https://e-commerce-hh3m.onrender.com/api/products/${id}`,
-      {
-        name: name ? name : data?.data?.choosenProduct?.name,
-        price: price || data?.data?.choosenProduct?.price,
-        description: description || data?.data?.choosenProduct?.description,
+    name && form.append('name', name)
+    price && form.append('price', price)
+    description && form.append('description', description)
+    category && form.append('kind', category)
+    isTrending && form.append('isTrending', isTrending)
+    subCategory && form.append('category', subCategory)
+    image1 && form.append('images', image1)
+    image2 && form.append('images', image2)
+    await axios.patch(`https://e-commerce-hh3m.onrender.com/api/products/${id}`, new URLSearchParams(form), {
+      headers: {
+        Authorization: `bearer ${token}`,
       },
-      {
-        headers: {
-          Authorization: `bearer ${token}`,
-        },
-      },
-    )
+    })
     setName('')
     setPrice('')
     setDescription('')
@@ -60,9 +52,19 @@ const ProductCustomization = () => {
     setSubCategory(e.currentTarget.id)
   }
   const isTrendingHandler = e => {
-    setIstrending(e.currentTarget.id)
+    if (e.currentTarget.id == 'True') {
+      setIstrending(true)
+    } else {
+      setIstrending(false)
+    }
   }
-
+  useEffect(() => {
+    setCategory(data?.data?.choosenProduct?.kind)
+    setSubCategory(data?.data?.choosenProduct?.category)
+    setIstrending(data?.data?.choosenProduct?.isTrending)
+  }, [data])
+  console.log(category)
+  console.log(subCategory)
   return (
     <>
       <form className="productCustomize p-4" onSubmit={formHandler}>
@@ -97,22 +99,24 @@ const ProductCustomization = () => {
             <input
               onChange={subCategoryHandler}
               type="radio"
+              checked={subCategory == 'dresses'}
               className="me-2 ms-2"
               name="sub-cat"
               id="dresses"
             />
-            <label className=" mt-2" htmlFor="Dresses">
+            <label className=" mt-2" htmlFor="dresses">
               Dresses
             </label>
             <br />
             <input
               onChange={subCategoryHandler}
               type="radio"
+              checked={subCategory == 'hoddies'}
               className="me-2 ms-2"
               name="sub-cat"
               id="hoddies"
             />
-            <label className=" mt-2" htmlFor="Hoddies">
+            <label className=" mt-2" htmlFor="hoddies">
               Hoddies
             </label>
             <br />
@@ -121,9 +125,10 @@ const ProductCustomization = () => {
               type="radio"
               className="me-2 ms-2"
               name="sub-cat"
+              checked={subCategory == 'jackets'}
               id="jackets"
             />
-            <label className=" mt-2" htmlFor="Jackets">
+            <label className=" mt-2" htmlFor="jackets">
               Jackets
             </label>
             <br />
@@ -132,9 +137,10 @@ const ProductCustomization = () => {
               type="radio"
               className="me-2 ms-2"
               name="sub-cat"
+              checked={subCategory == 't-shirt'}
               id="t-shirt"
             />
-            <label className=" mt-2" htmlFor="T-shirts">
+            <label className=" mt-2" htmlFor="t-shirt">
               T-shirts
             </label>
             <br />
@@ -142,10 +148,11 @@ const ProductCustomization = () => {
               onChange={subCategoryHandler}
               type="radio"
               className="me-2 ms-2"
+              checked={subCategory == 'running'}
               name="sub-cat"
               id="running"
             />
-            <label className=" mt-2" htmlFor="Track pants">
+            <label className=" mt-2" htmlFor="running">
               Track pants
             </label>
             <br />
@@ -153,17 +160,38 @@ const ProductCustomization = () => {
           <div>
             <label className="h6 mt-3">Category</label>
             <br />
-            <input type="radio" onChange={categoryHandler} className="me-2 ms-2" name="cat" id="Men" />
+            <input
+              type="radio"
+              checked={category == 'Men'}
+              onChange={categoryHandler}
+              className="me-2 ms-2"
+              name="cat"
+              id="Men"
+            />
             <label className=" mt-2" htmlFor="Men">
               Men
             </label>
             <br />
-            <input type="radio" onChange={categoryHandler} className="me-2 ms-2" name="cat" id="Women" />
+            <input
+              type="radio"
+              checked={category == 'Women'}
+              onChange={categoryHandler}
+              className="me-2 ms-2"
+              name="cat"
+              id="Women"
+            />
             <label className=" mt-2" htmlFor="Women">
               Women
             </label>
             <br />
-            <input type="radio" onChange={categoryHandler} className="me-2 ms-2" name="cat" id="Kids" />
+            <input
+              checked={category == 'Kids'}
+              type="radio"
+              onChange={categoryHandler}
+              className="me-2 ms-2"
+              name="cat"
+              id="Kids"
+            />
             <label className=" mt-2" htmlFor="Kids">
               Kids
             </label>
@@ -172,11 +200,25 @@ const ProductCustomization = () => {
         </div>
         <label className=" mt-3 me-2 mb-2">Is Trending</label>
         <br />
-        <input onChange={isTrendingHandler} type="radio" className="me-2 ms-2" name="trend" id="True" />
+        <input
+          checked={isTrending == true}
+          onChange={isTrendingHandler}
+          type="radio"
+          className="me-2 ms-2"
+          name="trend"
+          id="True"
+        />
         <label className=" mt-2" htmlFor="True">
           True
         </label>
-        <input onChange={isTrendingHandler} type="radio" className="me-2 ms-2" name="trend" id="False" />
+        <input
+          checked={isTrending == false}
+          onChange={isTrendingHandler}
+          type="radio"
+          className="me-2 ms-2"
+          name="trend"
+          id="False"
+        />
         <label className=" mt-2" htmlFor="False">
           False
         </label>
@@ -191,8 +233,7 @@ const ProductCustomization = () => {
           rows="4"
           cols="30"
           width="200"
-          height="150"
-        ></textarea>
+          height="150"></textarea>
         <br />
         <div className="productCustomizeImage d-flex flex-column justify-content-start mt-4 align-items-center">
           {image1 ? (

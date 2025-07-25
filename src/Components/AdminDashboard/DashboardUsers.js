@@ -46,16 +46,14 @@ const DashboardUsers = () => {
           type="button"
           disabled={numberPage === 1 ? true : false}
           className="btn btn-danger me-2"
-          onClick={() => setNumberPage(numberPage - 1)}
-        >
+          onClick={() => setNumberPage(numberPage - 1)}>
           Prievius
         </button>
         <button
           type="button"
-          disabled={numberPage === 2 ? true : false}
+          disabled={numberPage === 50 ? true : false}
           className="btn btn-primary"
-          onClick={() => setNumberPage(numberPage + 1)}
-        >
+          onClick={() => setNumberPage(numberPage + 1)}>
           Next
         </button>
       </div>

@@ -39,9 +39,6 @@ const HeaderContent = () => {
               type="text"
               onChange={searchInputHandler}
             />
-            <div className="rounded-start position-absolute end-0 top-40 p-2 ps-3 pe-3 bg-warning h-100 d-flex justify-content-center align-items-center rounded ">
-              <AiOutlineSearch className="text-black fs-3 fw-bold  " />
-            </div>
           </div>
           <div
             style={{ cursor: 'pointer' }}

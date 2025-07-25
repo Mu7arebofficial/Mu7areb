@@ -12,8 +12,7 @@ const Card = props => {
   return (
     <>
       <div
-        className={`card ${props.class} d-flex justify-content-start align-items-center position-relative overflow-hidden`}
-      >
+        className={`card ${props.class} d-flex justify-content-start align-items-center position-relative overflow-hidden`}>
         <img loading="lazy" src={props?.item?.images[0]?.url} alt="card_image" />
 
         <p className="pb-0 mb-1 pt-2 fw-bold text-dark">{props.item.name}</p>
@@ -25,7 +24,7 @@ const Card = props => {
             <BiDetail className="fs-3     " />
           </Link>
         </div>
-        <span>{props.item.price}$</span>
+        <span>{props.item.price} EGP</span>
 
         <div className="brandName">{props.item?.kind}</div>
       </div>

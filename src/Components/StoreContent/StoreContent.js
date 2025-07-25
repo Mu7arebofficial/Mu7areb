@@ -17,8 +17,8 @@ const StoreContent = props => {
   }
   return (
     <div className="Products row p-0 m-0 pb-5  ">
-      <div className="ProductsSettings col-3   text-start">
-        <div className="filterItem">
+      <div className="ProductsSettings   text-start">
+        {/* <div className="filterItem">
           <h4 className="pb-2">Brands</h4>
           {err && 'somthing went wrong'}
           {isLoading
@@ -38,14 +38,14 @@ const StoreContent = props => {
                   </div>
                 )
               })}
-        </div>
+        </div> */}
         {/* <div className='filterItem'>
                         <h4 className='pt-5 pb-2'>Filter by  price</h4>
                         <span>0</span>
                         <input type='range' min='0' max='1000' step='10' onChange={getPrice}  />
                         <span>{priceFilter}</span> 
                     </div> */}
-        <div className="filterItem pt-4">
+        {/* <div className="filterItem pt-4">
           <h4 className="pb-2">Sort by</h4>
           <div className="d-flex">
             <input className="me-2" type="radio" name="ass" id="asc" value="asc" onClick={getPriceOrder} />
@@ -59,7 +59,7 @@ const StoreContent = props => {
               Highest
             </label>
           </div>
-        </div>
+        </div> */}
       </div>
       <ProductsList
         searchKey={searchKey ? searchKey : ''}

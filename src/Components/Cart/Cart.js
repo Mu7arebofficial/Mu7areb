@@ -60,21 +60,19 @@ const Cart = props => {
                   <div className="d-flex justify-content-around align-items-center text-primary ">
                     <button
                       className=" btn btn-primary text-white"
-                      onClick={() => dispatch(Remove(item)) && toast.success('Removing Item successfully')}
-                    >
+                      onClick={() => dispatch(Remove(item)) && toast.success('Removing Item successfully')}>
                       -
                     </button>
                     <div>
                       <span>{item?.amount}&nbsp;&nbsp;</span>
                       <span>x&nbsp;&nbsp;</span>
-                      <span>$&nbsp;{item?.price}</span>
+                      <span>EGP&nbsp;{item?.price}</span>
                     </div>
                     <button
                       className="btn btn-primary text-white"
                       onClick={() =>
                         dispatch(Add({ ...item, quantaty: 1 })) && toast.success('adding Item successfully')
-                      }
-                    >
+                      }>
                       +
                     </button>
                   </div>
@@ -84,8 +82,7 @@ const Cart = props => {
                         chooseSizeHandler(e, item)
                       }}
                       disabled={item?.sizes[0]?.XXL < 1}
-                      className={`me-2 `}
-                    >
+                      className={`me-2 `}>
                       XXL
                     </button>
                     <button
@@ -93,8 +90,7 @@ const Cart = props => {
                         chooseSizeHandler(e, item)
                       }}
                       disabled={item?.sizes[0]?.XL < 1}
-                      className={`me-2 `}
-                    >
+                      className={`me-2 `}>
                       XL
                     </button>
                     <button
@@ -102,8 +98,7 @@ const Cart = props => {
                         chooseSizeHandler(e, item)
                       }}
                       disabled={item?.sizes[0]?.L < 1}
-                      className={`me-2 `}
-                    >
+                      className={`me-2 `}>
                       L
                     </button>
                     <button
@@ -111,8 +106,7 @@ const Cart = props => {
                         chooseSizeHandler(e, item)
                       }}
                       disabled={item?.sizes[0]?.M < 1}
-                      className={`me-2 `}
-                    >
+                      className={`me-2 `}>
                       M
                     </button>
                     <button
@@ -120,8 +114,7 @@ const Cart = props => {
                         chooseSizeHandler(e, item)
                       }}
                       disabled={item?.sizes[0]?.S < 1}
-                      className={`me-2 `}
-                    >
+                      className={`me-2 `}>
                       S
                     </button>
                   </div>

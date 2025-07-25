@@ -19,7 +19,7 @@ const ProductsList = ({ subCategory, category, searchKey, priceFilter, priceOrde
   const length = data?.data?.products.length
   return (
     <>
-      <div className="col-9 mt-4">
+      <div className="col-12 mt-4">
         {category && <h2 className="p-4 text-center">{category}</h2>}
         <div className="trending-clothes-content  row  d-flex justify-content-around ">
           {err && 'somthing went wrong'}
